@@ -1,0 +1,37 @@
+// Plugin management must be the first block in the file
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            // Kotlin plugin
+            if (requested.id.id == "org.jetbrains.kotlin.jvm" || requested.id.id == "org.jetbrains.kotlin.android") {
+                useVersion("1.9.25") // Use the latest stable Kotlin version
+            }
+            // Android Gradle plugin
+            if (requested.id.id == "com.android.application" || requested.id.id == "com.android.library") {
+                useVersion("8.3.0") // Use the latest stable Android Gradle plugin version
+            }
+        }
+    }
+}
+
+// Dependency resolution management
+
+// Include the app module
+include ':app'
+
+// Load local.properties file
+def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
+def properties = new Properties()
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
+}
+
+// Get Flutter SDK path from local.properties
+def flutterSdkPath = properties.getProperty("flutter.sdk")
+if (flutterSdkPath == null) {
+    throw new GradleException("flutter.sdk not set in local.properties. Make sure to define the Flutter SDK path in local.properties.")
+}
+
+// Apply Flutter plugin loader
+apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"

@@ -1,0 +1,139 @@
+{
+  "project_info": {
+    "project_number": "912635063803",
+    "firebase_url": "https://letzrent-5f5a3.firebaseio.com",
+    "project_id": "letzrent-5f5a3",
+    "storage_bucket": "letzrent-5f5a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912635063803:android:a4e9f04642a6ff94e22f5e",
+        "android_client_info": {
+          "package_name": "com.example.letzrentnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912635063803-tqilcb693bkpjuerjiik7qj8r41g43jk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.letzrentnew",
+            "certificate_hash": "0f01647c85f8cf8d4a7e5823d19875d70f224c9a"
+          }
+        },
+        {
+          "client_id": "912635063803-kr8202n1g6218o2t25vjjqte2a39s1gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkfsTD8o5HaNXSDl7j6Sog_2o8kHXII8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912635063803-kr8202n1g6218o2t25vjjqte2a39s1gf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "912635063803-2t2n19akqio8oqrsbv916sihshuv2aa8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letzrent.letzrentnew"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912635063803:android:84249ef7b9b62398e22f5e",
+        "android_client_info": {
+          "package_name": "com.letzrent.letzrentnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912635063803-94b48epdthnt847du8ohjvnjksi59cr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzrent.letzrentnew",
+            "certificate_hash": "01bdd97634082129d444a308b81d99f11a604fca"
+          }
+        },
+        {
+          "client_id": "912635063803-bl9h0rksvg8jt6s09ia6o8o5vcuc4l8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzrent.letzrentnew",
+            "certificate_hash": "39e7d0bd4fb59131712da1ecbed9ec2997c87cc6"
+          }
+        },
+        {
+          "client_id": "912635063803-fc0ass4tivt34jv3oogfvo02oaahjri7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzrent.letzrentnew",
+            "certificate_hash": "0f01647c85f8cf8d4a7e5823d19875d70f224c9a"
+          }
+        },
+        {
+          "client_id": "912635063803-h7id7b9vt51s6efikntjgt9fmbn3g6ue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzrent.letzrentnew",
+            "certificate_hash": "7d1f432083d96d58b08db2b17bdd014608f6d8d2"
+          }
+        },
+        {
+          "client_id": "912635063803-nj5fbv0c40sl8rjbo0nua1enfq6vinvq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzrent.letzrentnew",
+            "certificate_hash": "8fad42e82c138de4916acb0f5a4b2ee5d05e3db2"
+          }
+        },
+        {
+          "client_id": "912635063803-q7sk1rs1hl1dlqj25g29up0b5jsc7713.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.letzrent.letzrentnew",
+            "certificate_hash": "f1bfda6dfc3aef1175d183e202743eea507e16ab"
+          }
+        },
+        {
+          "client_id": "912635063803-kr8202n1g6218o2t25vjjqte2a39s1gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkfsTD8o5HaNXSDl7j6Sog_2o8kHXII8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912635063803-kr8202n1g6218o2t25vjjqte2a39s1gf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "912635063803-2t2n19akqio8oqrsbv916sihshuv2aa8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.letzrent.letzrentnew"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

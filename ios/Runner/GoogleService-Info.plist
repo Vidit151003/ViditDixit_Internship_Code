@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>912635063803-p64v02b37fj0gn73jmo6gfbokrmj5p6l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.912635063803-p64v02b37fj0gn73jmo6gfbokrmj5p6l</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>912635063803-94b48epdthnt847du8ohjvnjksi59cr8.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDNzmwm88w-YSP90VwMmS4Zd3JxpYziklQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>912635063803</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.letzrent.letzrent</string>
+	<key>PROJECT_ID</key>
+	<string>letzrent-5f5a3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>letzrent-5f5a3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:912635063803:ios:35b82cdd7490dfe8e22f5e</string>
+	<key>DATABASE_URL</key>
+	<string>https://letzrent-5f5a3.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,85 @@
+name: letzrentnew
+description: A new Flutter project.
+
+version: 6.0.22+162
+
+environment:
+  sdk: '>=3.6.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  cloud_firestore: ^5.6.4
+  firebase_storage: ^12.4.3
+  firebase_core: ^3.12.0
+  firebase_auth: ^5.5.0
+  firebase_messaging: ^15.2.3
+  firebase_crashlytics: ^4.3.3
+  firebase_dynamic_links: ^6.1.3
+  provider: ^6.0.3
+  intl: ^0.20.2
+  razorpay_flutter: ^1.3.5
+  image_picker: ^1.0.4
+  font_awesome_flutter: ^10.1.0
+  url_launcher: ^6.0.18
+  carousel_slider: ^5.0.0
+  cached_network_image: ^3.2.3
+  shimmer: ^3.0.0
+  # syncfusion_flutter_datepicker: ^20.3.47
+  http: ^0.13.4
+  shared_preferences: ^2.0.13
+  confetti: ^0.8.0
+  mixpanel_flutter: ^2.0.0
+  flutter_spinkit: ^5.1.0
+  tap_debouncer: ^2.0.0
+  in_app_review: ^2.0.4
+  place_picker: ^0.10.0
+  # cashfree_pg: ^2.0.6+26
+  flutter_screenutil: ^5.5.2
+  geolocator: ^9.0.0
+  package_info_plus: ^8.2.1
+  # flutter_branch_sdk: ^6.4.0
+  # share_plus: ^8.0.0
+  google_sign_in: ^6.1.5
+  sign_in_with_apple: ^6.1.4
+  google_fonts: ^4.0.4
+  connectivity_plus: ^6.1.3
+  # clevertap_plugin: ^1.7.0
+
+  # flutter_native_splash: ^2.2.18
+  # flutter_launcher_icons: ^0.12.0
+  #flutter_branch_sdk: ^6.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# flutter_icons:
+# #   android: true
+#   ios: true
+#   image_path: "dev_assets/logo_final.jpeg"
+#   adaptive_icon_background: "#000000"
+#   adaptive_icon_foreground: "dev_assets/logo_final.jpeg"
+#   adaptive_icon_padding: true
+# flutter_native_splash:
+#   android: true
+#   ios: true
+#   image: "dev_assets/logo_final.jpeg"
+#   color: "#9b08fe"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/icons/HomeIcons/
+    - assets/images/Tips&Tricks/
+    - assets/images/ZymoBenefits/
+    - dev_assets/
+
+  fonts:
+    - family: Garamond
+      fonts:
+        - asset: assets/fonts/RacingSansOne-Regular.ttf
+          style: italic
