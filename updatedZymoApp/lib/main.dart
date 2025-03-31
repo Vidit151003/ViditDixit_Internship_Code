@@ -98,7 +98,7 @@ class AuthStreamHandler extends StatelessWidget {
           return TabScreen(); // User is authenticated
         }
 
-        return LoginScreen();
+        return TabScreen();
         // User is logged out
       },
     );

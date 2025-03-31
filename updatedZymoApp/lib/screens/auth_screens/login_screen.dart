@@ -6,10 +6,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:letzrentnew/Services/auth_services.dart';
 import 'package:letzrentnew/Utils/constants.dart';
 import 'package:letzrentnew/Utils/functions.dart';
+import 'package:letzrentnew/screens/auth_screens/otp_register.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
   static const routeName = '/login';
 
   @override
@@ -21,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwordController = TextEditingController();
 
   bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +94,40 @@ class _LoginScreenState extends State<LoginScreen> {
                                       width: 10,
                                     ),
                                     Text(
+                                      'Sign in With Phone',
+                                      style: largeBlackStyle,
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Register()),
+                                  );
+                                })),
+                      ),
+                      SizedBox(
+                        height: .02.sh,
+                      ),
+                      ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        child: SizedBox(
+                            width: .9.sw,
+                            height: .06.sh,
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(FontAwesomeIcons.google,
+                                        color: Colors.black),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
                                       'Sign in with Google',
                                       style: largeBlackStyle,
                                     )
@@ -124,7 +161,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     )
                                   ],
                                 ),
-                                onPressed: (){signInApple;})),
+                                onPressed: () {
+                                  signInApple;
+                                })),
                       ),
                       SizedBox(
                         height: .02.sh,
@@ -164,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       final GoogleSignInAccount? googleSignInAccount = await _google.signIn();
       final GoogleSignInAuthentication? googleSignInAuthentication =
-      await googleSignInAccount?.authentication;
+          await googleSignInAccount?.authentication;
 
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication?.accessToken,
@@ -172,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       final UserCredential authResult =
-      await FirebaseAuth.instance.signInWithCredential(credential);
+          await FirebaseAuth.instance.signInWithCredential(credential);
       final User? user = authResult.user;
       await Auth.postCreation(authResult, context);
       assert(!user!.isAnonymous);
@@ -183,7 +222,6 @@ class _LoginScreenState extends State<LoginScreen> {
       CommonFunctions.showSnackbar(context, error.toString());
       print(error.toString());
     }
-
 
     // Future<void> performGoogleLogin() async {
     //   try {
@@ -201,6 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
     //   }
     // }
   }
+
   Future signInApple(BuildContext context) async {
     try {
       setState(() {
@@ -235,10 +274,9 @@ class _LoginScreenState extends State<LoginScreen> {
       accessToken: appleIdCredential.authorizationCode,
     );
     final UserCredential authResult =
-    await FirebaseAuth.instance.signInWithCredential(credential);
+        await FirebaseAuth.instance.signInWithCredential(credential);
     final User? user = authResult.user;
     await Auth.postCreation(authResult, context);
     assert(user!.isAnonymous);
   }
 }
-

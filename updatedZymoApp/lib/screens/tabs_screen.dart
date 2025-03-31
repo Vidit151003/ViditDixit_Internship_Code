@@ -32,7 +32,7 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void initState() {
     super.initState();
-    checkForUpdate(context);
+    //checkForUpdate(context);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       // Handle the incoming message here
       print("Received message: ${message.notification?.title}");

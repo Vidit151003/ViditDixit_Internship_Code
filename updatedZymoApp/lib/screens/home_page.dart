@@ -114,16 +114,18 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               height: 25,
                               decoration: BoxDecoration(
-                                gradient: LinearGradient(colors: gradientColors),
+                                gradient:
+                                    LinearGradient(colors: gradientColors),
                               ),
                             ),
                             Stack(
                               children: [
                                 Container(
-                                  height: MediaQuery.of(context).size.height * .5,
+                                  height:
+                                      MediaQuery.of(context).size.height * .5,
                                   decoration: BoxDecoration(
-                                      gradient:
-                                      LinearGradient(colors: gradientColors),
+                                      gradient: LinearGradient(
+                                          colors: gradientColors),
                                       borderRadius: const BorderRadius.vertical(
                                           bottom: Radius.circular(40))),
                                 ),
@@ -142,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
-                                            BorderRadius.circular(15),
+                                                BorderRadius.circular(15),
                                           ),
                                           padding: const EdgeInsets.all(8),
                                           child: Row(
@@ -151,8 +153,8 @@ class _HomePageState extends State<HomePage> {
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                       borderRadius:
-                                                      BorderRadius.circular(
-                                                          15),
+                                                          BorderRadius.circular(
+                                                              15),
                                                       gradient: LinearGradient(
                                                           colors: isSelfDrive
                                                               ? gradientColors
@@ -165,12 +167,12 @@ class _HomePageState extends State<HomePage> {
                                                     },
                                                     child: Padding(
                                                       padding:
-                                                      const EdgeInsets.all(
-                                                          18.0),
+                                                          const EdgeInsets.all(
+                                                              18.0),
                                                       child: Text(
                                                         'For Hours Or Days',
                                                         textAlign:
-                                                        TextAlign.center,
+                                                            TextAlign.center,
                                                         style: isSelfDrive
                                                             ? whiteTitleStyle
                                                             : titleStyle,
@@ -184,78 +186,84 @@ class _HomePageState extends State<HomePage> {
                                               ),
                                               Expanded(
                                                   child: Container(
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                        BorderRadius.circular(15),
-                                                        gradient: LinearGradient(
-                                                            colors: !isSelfDrive
-                                                                ? gradientColors
-                                                                : list)),
-                                                    child: InkWell(
-                                                      onTap: () {
-                                                        setState(() {
-                                                          isSelfDrive = false;
-                                                        });
-                                                      },
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.all(
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                    gradient: LinearGradient(
+                                                        colors: !isSelfDrive
+                                                            ? gradientColors
+                                                            : list)),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      isSelfDrive = false;
+                                                    });
+                                                  },
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
                                                             18.0),
-                                                        child: Text(
-                                                          'Monthly Rental',
-                                                          textAlign: TextAlign.center,
-                                                          style: !isSelfDrive
-                                                              ? whiteTitleStyle
-                                                              : titleStyle,
-                                                        ),
-                                                      ),
+                                                    child: Text(
+                                                      'Monthly Rental',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: !isSelfDrive
+                                                          ? whiteTitleStyle
+                                                          : titleStyle,
                                                     ),
-                                                  )),
+                                                  ),
+                                                ),
+                                              )),
                                             ],
                                           ),
                                         ),
                                       ),
                                       Consumer<CarProvider>(
                                           builder: (BuildContext context, value,
-                                              Widget? child) =>
+                                                  Widget? child) =>
                                               Column(children: [
                                                 Padding(
-                                                  padding:
-                                                  const EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
                                                       horizontal: 8.0),
                                                   child: Column(
                                                     children: [
                                                       Card(
                                                         shape:
-                                                        RoundedRectangleBorder(
+                                                            RoundedRectangleBorder(
                                                           borderRadius:
-                                                          BorderRadius
-                                                              .circular(15),
+                                                              BorderRadius
+                                                                  .circular(15),
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                          const EdgeInsets
-                                                              .all(8.0),
-                                                          child: AnimatedSwitcher(
-                                                            duration: const Duration(
-                                                                milliseconds:
-                                                                480),
+                                                              const EdgeInsets
+                                                                  .all(8.0),
+                                                          child:
+                                                              AnimatedSwitcher(
+                                                            duration:
+                                                                const Duration(
+                                                                    milliseconds:
+                                                                        480),
                                                             child: KeyedSubtree(
-                                                              key: ValueKey<bool>(
+                                                              key: ValueKey<
+                                                                      bool>(
                                                                   isSelfDrive),
                                                               child: isSelfDrive
                                                                   ? durationPicker(
-                                                                  context,
-                                                                  value)
+                                                                      context,
+                                                                      value)
                                                                   : atDurationPicker(
-                                                                  context,
-                                                                  value),
+                                                                      context,
+                                                                      value),
                                                             ),
                                                             transitionBuilder:
                                                                 (child,
-                                                                animation) {
+                                                                    animation) {
                                                               return FadeTransition(
                                                                   opacity:
-                                                                  animation,
+                                                                      animation,
                                                                   child: child);
                                                             },
                                                           ),
@@ -267,7 +275,7 @@ class _HomePageState extends State<HomePage> {
                                                       TripDurationWidget(
                                                           duration: isSelfDrive
                                                               ? value
-                                                              .getTripDuration()
+                                                                  .getTripDuration()
                                                               : "30 Days"),
                                                     ],
                                                   ),
@@ -280,26 +288,26 @@ class _HomePageState extends State<HomePage> {
                                                     child: value.isLoading
                                                         ? spinkit
                                                         : Padding(
-                                                      padding:
-                                                      const EdgeInsets
-                                                          .symmetric(
-                                                          horizontal:
-                                                          8.0),
-                                                      child: AppButton(
-                                                          color: appColor,
-                                                          textSize: 20,
-                                                          title: 'Search'
-                                                              .toUpperCase(),
-                                                          screenHeight:
-                                                          1.sh,
-                                                          function: () => isSelfDrive
-                                                              ? CarFunctions
-                                                              .selfDriveNavigate(
-                                                              context)
-                                                              : CarFunctions()
-                                                              .monthlyRentalNavigate(
-                                                              context)),
-                                                    )),
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .symmetric(
+                                                                    horizontal:
+                                                                        8.0),
+                                                            child: AppButton(
+                                                                color: appColor,
+                                                                textSize: 20,
+                                                                title: 'Search'
+                                                                    .toUpperCase(),
+                                                                screenHeight:
+                                                                    1.sh,
+                                                                function: () => isSelfDrive
+                                                                    ? CarFunctions
+                                                                        .selfDriveNavigate(
+                                                                            context)
+                                                                    : CarFunctions()
+                                                                        .monthlyRentalNavigate(
+                                                                            context)),
+                                                          )),
                                                 SizedBox(
                                                   height: .01.sh,
                                                 ),
@@ -317,7 +325,7 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.all(12.0),
                               decoration: BoxDecoration(
                                   gradient:
-                                  LinearGradient(colors: gradientColors)),
+                                      LinearGradient(colors: gradientColors)),
                               child: Column(
                                 children: [
                                   Text('Why $appName?'.toUpperCase(),
@@ -329,23 +337,20 @@ class _HomePageState extends State<HomePage> {
                                   CarouselSlider(
                                       items: List.generate(
                                           4,
-                                              (index) => Card(
-                                            shape:
-                                            RoundedRectangleBorder(
-                                              borderRadius:
-                                              BorderRadius.circular(
-                                                  15),
-                                            ),
-                                            elevation: 5,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                              BorderRadius.circular(
-                                                  15),
-                                              child: Image.asset(
-                                                "assets/icons/HomeIcons/${index + 1}.png",
-                                              ),
-                                            ),
-                                          )),
+                                          (index) => Card(
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                ),
+                                                elevation: 5,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  child: Image.asset(
+                                                    "assets/icons/HomeIcons/${index + 1}.png",
+                                                  ),
+                                                ),
+                                              )),
                                       options: CarouselOptions(
                                         aspectRatio: 16 / 10,
                                         autoPlay: true,
@@ -370,7 +375,7 @@ class _HomePageState extends State<HomePage> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: CachedNetworkImage(
                                         imageUrl:
-                                        "https://zymo.app/Imgs/img20.jpg"),
+                                            "https://zymo.app/Imgs/img20.jpg"),
                                   ),
                                 ),
                               ),
@@ -386,19 +391,20 @@ class _HomePageState extends State<HomePage> {
                                     padding: const EdgeInsets.only(top: 12.0),
                                     child: Text(
                                       "Zymo Benefits".toUpperCase(),
-                                      style:
-                                      bigTitleStyle.copyWith(color: appColor),
+                                      style: bigTitleStyle.copyWith(
+                                          color: appColor),
                                     ),
                                   ),
                                   GridView(
-                                    physics: const NeverScrollableScrollPhysics(),
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
                                     shrinkWrap: true,
                                     gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        childAspectRatio: .9,
-                                        mainAxisSpacing: 1,
-                                        crossAxisSpacing: 1),
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 2,
+                                            childAspectRatio: .9,
+                                            mainAxisSpacing: 1,
+                                            crossAxisSpacing: 1),
                                     children: items.map((String imagePath) {
                                       return Builder(
                                         builder: (BuildContext context) {
@@ -428,8 +434,10 @@ class _HomePageState extends State<HomePage> {
                               padding: EdgeInsets.symmetric(vertical: 8.0),
                               child: Center(
                                 child: Text("CONNECT WITH US",
-                                    style:
-                                    TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: appColor)),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: appColor)),
                               ),
                             ),
                             Row(
@@ -442,7 +450,8 @@ class _HomePageState extends State<HomePage> {
                                           'https://www.facebook.com/LetzRent.official/'));
                                     }),
                                 IconButton(
-                                    icon: const Icon(FontAwesomeIcons.instagram),
+                                    icon:
+                                        const Icon(FontAwesomeIcons.instagram),
                                     onPressed: () {
                                       launchUrl(Uri.parse(
                                           'https://www.instagram.com/zymo.app'));
@@ -483,89 +492,109 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-  Future<void> voucherFunction(
-    HomeProvider value,
-    BuildContext context,
-  ) async {
-    await Future.delayed(twoSeconds);
-    if (value.isReferral) {
-      voucherPopUp(context, 'Congrats!',
-          'You have won a voucher worth $rupeeSign$referralAmount!$happyEmoji$happyEmoji$happyEmoji Refer more to get more.');
-      value.isReferralFunction(false);
-    } else if (value.isNewUser) {
-      voucherPopUp(context, 'Congrats!',
-          'You have won a voucher!$happyEmoji$happyEmoji$happyEmoji Rent more to get more.');
-      value.isNewUserFunction(false);
-    }
+Future<void> voucherFunction(
+  HomeProvider value,
+  BuildContext context,
+) async {
+  await Future.delayed(twoSeconds);
+  if (value.isReferral) {
+    voucherPopUp(context, 'Congrats!',
+        'You have won a voucher worth $rupeeSign$referralAmount!$happyEmoji$happyEmoji$happyEmoji Refer more to get more.');
+    value.isReferralFunction(false);
+  } else if (value.isNewUser) {
+    voucherPopUp(context, 'Congrats!',
+        'You have won a voucher!$happyEmoji$happyEmoji$happyEmoji Rent more to get more.');
+    value.isNewUserFunction(false);
   }
+}
 
-  Widget bannerWidget() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: SizedBox(
-          height: 0.3.sh,
-          width: 1.sw,
-          child: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-              future: FirebaseServices().getBanner(),
-              builder: (context, futureSnapshot) {
-                if (!futureSnapshot.hasData) {
-                  return const Center(child: spinkit);
-                } else {
-                  return BannerWidget(
-                      images: futureSnapshot.data!.data()?['imageList']);
-                }
-              })),
-    );
-  }
+Widget bannerWidget() {
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(15),
+    child: SizedBox(
+      height: 0.3.sh,
+      width: 1.sw,
+      child: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+        future: FirebaseServices().getBanner(),
+        builder: (context, futureSnapshot) {
+          if (!futureSnapshot.hasData) {
+            return const Center(child: spinkit);
+          } else {
+            try {
+              // Fetch the dynamic list from Firebase
+              final List<dynamic> dynamicList =
+                  futureSnapshot.data!.data()?['imageList'];
 
-  InkWell profilePictureWidget(BuildContext context, User user) {
-    return InkWell(
-      onTap: () =>
-          //       Provider.of<ThemeProvider>(context, listen: false).toggleTheme(),
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => UserProfile())),
-      child: CircleAvatar(
-          backgroundColor: greyColor,
-          child: user.photoURL != null
-              ? CachedNetworkImage(
-                  imageUrl: user.photoURL.toString(),
-                )
-              : const Icon(
-                  Icons.person,
-                  color: appColor,
-                )),
-    );
-  }
+              // Convert List<dynamic> to List<Map<String, String>>
+              final List<Map<String, String>> imageList =
+                  dynamicList.map((item) {
+                // Cast each item to Map<String, dynamic> and convert values to String
+                return (item as Map<String, dynamic>).map((key, value) {
+                  return MapEntry(key, value.toString());
+                });
+              }).toList();
 
+              // Pass the converted list to BannerWidget
+              return BannerWidget(images: imageList);
+            } catch (e) {
+              // Handle errors gracefully
+              return Center(child: Text('Error loading banner: $e'));
+            }
+          }
+        },
+      ),
+    ),
+  );
+}
+
+InkWell profilePictureWidget(BuildContext context, User user) {
+  return InkWell(
+    onTap: () =>
+        //       Provider.of<ThemeProvider>(context, listen: false).toggleTheme(),
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => UserProfile())),
+    child: CircleAvatar(
+        backgroundColor: greyColor,
+        child: user.photoURL != null
+            ? CachedNetworkImage(
+                imageUrl: user.photoURL.toString(),
+              )
+            : const Icon(
+                Icons.person,
+                color: appColor,
+              )),
+  );
+}
 
 class GrowTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final String body;
   final Color color;
+
   const GrowTile({
     super.key,
     required this.icon,
     required this.title,
     required this.body,
-    this.color=Colors.black,
+    this.color = Colors.black,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          // borderRadius: BorderRadius.circular(15),
-          // gradient: LinearGradient(colors: gradientColors)
-          ),
-      child: Image.asset("assets/icons/HomeIcons/1.png")
-    );
+        decoration: BoxDecoration(
+            // borderRadius: BorderRadius.circular(15),
+            // gradient: LinearGradient(colors: gradientColors)
+            ),
+        child: Image.asset("assets/icons/HomeIcons/1.png"));
   }
 }
 
 class NoUserError extends StatelessWidget {
   final Function() onLogin;
   final String message;
+
   const NoUserError({
     super.key,
     required this.message,
@@ -592,7 +621,9 @@ class NoUserError extends StatelessWidget {
             function: () async {
               await CommonFunctions.navigateToSignIn(context);
               onLogin();
-            }, textSize:20, color: Colors.black,
+            },
+            textSize: 20,
+            color: Colors.black,
           )
         ],
       ),
@@ -692,6 +723,7 @@ class CategoryWidget extends StatelessWidget {
     );
   }
 }
+
 class BrandImagesWidget extends StatelessWidget {
   const BrandImagesWidget({
     super.key,
@@ -738,7 +770,6 @@ class BrandImagesWidget extends StatelessWidget {
   }
 }
 
-
 class BannerWidget extends StatelessWidget {
   final List<Map<String, String>> images;
 
@@ -752,7 +783,8 @@ class BannerWidget extends StatelessWidget {
         autoPlayInterval: const Duration(seconds: 5),
         autoPlayAnimationDuration: const Duration(seconds: 1),
         enlargeCenterPage: true,
-        viewportFraction: 1.0, // Full width
+        viewportFraction: 1.0,
+        // Full width
         enableInfiniteScroll: true,
       ),
       items: images.map((e) {
@@ -779,7 +811,8 @@ class BannerWidget extends StatelessWidget {
           child: CachedNetworkImage(
             imageUrl: e['imageUrl'] ?? '',
             fit: BoxFit.cover,
-            placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+            placeholder: (context, url) =>
+                Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         );
@@ -787,4 +820,3 @@ class BannerWidget extends StatelessWidget {
     );
   }
 }
-

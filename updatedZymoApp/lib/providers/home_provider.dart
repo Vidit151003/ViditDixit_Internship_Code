@@ -9,34 +9,43 @@ import 'package:letzrentnew/models/user_location_model.dart';
 import 'package:place_picker/place_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 class HomeProvider with ChangeNotifier {
-  late String _location;
-
+  late String _location = '';  // Ensure default value
   String get location => _location;
-  late String _address;
 
+  late String _address = '';  // Ensure default value
   String get address => _address;
 
   String _searchString = '';
-
   String get searchString => _searchString;
 
-  late LatLng _locationLatLng;
-
+  late LatLng _locationLatLng = const LatLng(0, 0);  // Default LatLng value
   LatLng get locationLatLng => _locationLatLng;
 
   bool _rewardIndicator = false;
-
   bool get rewardIndicator => _rewardIndicator;
+
   bool _isNewUser = false;
-
   bool get isNewUser => _isNewUser;
-  bool _isReferral = false;
 
+  bool _isReferral = false;
   bool get isReferral => _isReferral;
 
   bool _isLocationLoading = false;
-
   bool get isLocationLoading => _isLocationLoading;
 
   late File? aadhaarFront;
@@ -48,13 +57,13 @@ class HomeProvider with ChangeNotifier {
 
   late int otpTimeout;
   late int resendToken;
-  late Timer _timer;
+  Timer? _timer;  // Timer should be nullable
 
   void otpInitTimer(int i, int token) {
     resendToken = token;
-    const oneSec = const Duration(seconds: 1);
+    const oneSec = Duration(seconds: 1);
     otpTimeout = i;
-    _timer = new Timer.periodic(oneSec, (Timer timer) {
+    _timer = Timer.periodic(oneSec, (Timer timer) {
       if (otpTimeout == 0) {
         timer.cancel();
         notifyListeners();
@@ -66,67 +75,45 @@ class HomeProvider with ChangeNotifier {
     print(_timer);
   }
 
-  cancelTimer() {
-    _timer.cancel();
+  void cancelTimer() {
+    _timer?.cancel();  // Ensure _timer is initialized before canceling
   }
 
-  // final List<Map<String, String>> onboardingPages = [
-  //   {
-  //     'image': 'assets/images/onboarding_images/search.jpeg',
-  //     'title': 'SEARCH',
-  //     'body': 'Search for the desired product.'
-  //   },
-  //   {
-  //     'image': 'assets/images/onboarding_images/compare.png',
-  //     'title': 'COMPARE',
-  //     'body': 'Compare brands and prices to find the best deal.'
-  //   },
-  //   {
-  //     'image': 'assets/images/onboarding_images/rent.jpeg',
-  //     'title': 'RENT',
-  //     'body': 'Rent your desired product.'
-  //   },
-  //   {
-  //     'image': 'assets/images/onboarding_images/earn.jpeg',
-  //     'title': 'EARN REWARDS & REDEEM',
-  //     'body': 'Get rewarded for renting.'
-  //   },
-  // ];
-
   Future<void> initPrefs() async {
-    _prefs ??= await SharedPreferences.getInstance();
+    _prefs = await SharedPreferences.getInstance();
   }
 
   Future<DriveModel> getRecentSearch() async {
     await initPrefs();
     final DriveModel driveModel = DriveModel(
-        city: '',
-        mapLatLng: LatLng(0, 0),
-        endtime: _prefs.getString('endTime')!,
-        endDate: _prefs.getString('endDate')!,
-        distanceOs: 0,
-        hrs: 0,
-        startDate: _prefs.getString('startDate')!,
-        starttime: _prefs.getString('startTime')!,
-        mapLocation: '',
-        remainingDuration: _prefs.getString('duration')!,
-        type: '',
-        weekdays: 0,
-        terminalId: 0,
-        weekends: 0,
-        weekendhr: 0,
-        weekdayhr: 0)
-      ..remainingDuration = _prefs.getString('duration')!
-      ..startDate = _prefs.getString('startDate')!
-      ..starttime = _prefs.getString('startTime')!
-      ..endDate = _prefs.getString('endDate')!
-      ..endtime = _prefs.getString('endTime')!;
+      city: '',
+      mapLatLng: const LatLng(0, 0),
+      endtime: _prefs.getString('endTime') ?? '',
+      endDate: _prefs.getString('endDate') ?? '',
+      distanceOs: 0,
+      hrs: 0,
+      startDate: _prefs.getString('startDate') ?? '',
+      starttime: _prefs.getString('startTime') ?? '',
+      mapLocation: '',
+      remainingDuration: _prefs.getString('duration') ?? '',
+      type: '',
+      weekdays: 0,
+      terminalId: 0,
+      weekends: 0,
+      weekendhr: 0,
+      weekdayhr: 0,
+    )
+      ..remainingDuration = _prefs.getString('duration') ?? ''
+      ..startDate = _prefs.getString('startDate') ?? ''
+      ..starttime = _prefs.getString('startTime') ?? ''
+      ..endDate = _prefs.getString('endDate') ?? ''
+      ..endtime = _prefs.getString('endTime') ?? '';
 
     return driveModel;
   }
 
-  Future<void> setRecentSearch(String duration, String startDate,
-      String startTime, String endDate, String endTime) async {
+  Future<void> setRecentSearch(
+      String duration, String startDate, String startTime, String endDate, String endTime) async {
     await initPrefs();
     await _prefs.setString('duration', duration);
     await _prefs.setString('startDate', startDate);
@@ -143,24 +130,27 @@ class HomeProvider with ChangeNotifier {
     await _prefs.setString('location', userLocationModel.location);
     await _prefs.setDouble('locationLat', _locationLatLng.latitude);
     await _prefs.setDouble('locationLng', _locationLatLng.longitude);
-    await _prefs.setString(
-        'userLocationModel', jsonEncode(userLocationModel.toJson()));
+    await _prefs.setString('userLocationModel', jsonEncode(userLocationModel.toJson()));
   }
 
   Future<String> getLocation() async {
+    await initPrefs();
+
     if (_location.isEmpty) {
-      await initPrefs();
-      _location = _prefs.getString('location')!;
+      _location = _prefs.getString('location') ?? 'Unknown Location';
+
       final double? locationLat = _prefs.getDouble('locationLat');
       final double? locationLng = _prefs.getDouble('locationLng');
-      _locationLatLng = LatLng(locationLat!, locationLng!);
+
+      if (locationLat != null && locationLng != null) {
+        _locationLatLng = LatLng(locationLat, locationLng);
+      }
     }
+
     return _location;
   }
 
   int selectedPageIndex = 0;
-
-  // bool get isLastPage => selectedPageIndex == onboardingPages.length - 1;
   PageController pageController = PageController();
 
   void setPage(int page) {
@@ -240,7 +230,7 @@ class HomeProvider with ChangeNotifier {
 
   Future<void> clearAllData() async {
     await initPrefs();
-    await _prefs.clear();
+    await _prefs?.clear();
   }
 
   void toggleLocationLoading(bool value) {
