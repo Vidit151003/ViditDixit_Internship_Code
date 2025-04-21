@@ -24,10 +24,10 @@ This subdirectory contains the **OTP (One-Time Password) verification logic**, i
 
 ## 🛠️ Tech Stack
 
-- **Language**: Kotlin / Java (based on your actual code)
+- **Language**: Flutter
 - **IDE**: Android Studio
-- **Architecture**: MVVM / MVP (based on your structure)
-- **Firebase / SMS Retriever API** (if used for OTP)
+- **Architecture**: Clean Architecture 
+- **Firebase
 - Git for version control
 
 ---
@@ -35,17 +35,17 @@ This subdirectory contains the **OTP (One-Time Password) verification logic**, i
 ## 🙋‍♂️ Developed by
 
 **Vidit Dixit**  
-Intern | Mobile App Development  
-[Your LinkedIn] (optional)  
-[Your Email] (optional)
+Software Developer Intern | Zymo  
+https://www.linkedin.com/in/vidit-dixit-12777b255/ 
+itsviditdixit1@gmail.com
 
 ---
 
 ## 📌 Notes
 
 - All code was developed during my internship period.
-- The `app-full` directory represents a production-level app.
-- The `otp-verification` folder is modular and ideal for integration into other projects.
+- The `zymoupdatedcode` directory represents a production-level app.
+- The `OTPcode` folder is modular and ideal for integration into other projects.
 
 ---
 
